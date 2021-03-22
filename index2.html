@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Документ без названия</title>
+<style>
+.page{
+    border:solid 1px black;
+    width:800px;
+    margin:0px auto;
+    height:500px;
+    text-align:center;
+    position:relative
+}
+input[type='button']{
+    vertical-align:bottom;
+    display:block;
+    margin:0px auto;
+}
+</style>
+<script>
+window.onload = function(){
+    if(localStorage.getItem("flag")){
+document.getElementById("firstPoint").innerHTML=localStorage.getItem("startPoint");
+document.getElementById("secondPoint").innerHTML=localStorage.getItem("finishPoint");
+document.getElementById("distance").innerHTML=localStorage.getItem("distance");
+document.getElementById("cost").innerHTML=localStorage.getItem("cost");
+    }
+    else{
+        document.getElementsByClassName("page").item(0).innerHTML+="Ошибочка";
+        
+    }
+}
+</script>
+</head>
+<body>
+<div class="page">
+<h1>Ежедневник
+<select>
+  <option>Понедельник</option>
+  <option>Вторник</option>
+  <option>Среда</option>
+  <option>Четверг</option>
+  <option>Пятница</option>
+  <option>Суббота</option>
+  <option>Воскресенье</option>
+</select>
+</h1>
+
+Утро: <label id="firstPoint"></label><br>
+День: <label id="secondPoint"></label><br>
+Вечер: <label id="distance"></label>
+<br>
+    Ночь: <label id="cost"></label><br>
+<a class="btn btn-warning" href="#" onclick="location.reload(); return false;">
+    <span>Обновить страницу</span>
+</a>
+
+<link rel="stylesheet" href="https://snipp.ru/cdn/bootstrap/4.3/bootstrap.min.css">
+<style type="text/css">
+body {
+    margin: 20px;
+}
+.btn {
+    position: relative;
+}
+.btn span {
+    position: relative;
+    z-index: 100;
+}
+.btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    width: 0%;
+    background: #b96df3;
+    opacity: 0.5;
+    animation: animate 100s ease-out;
+}
+@keyframes animate { 
+    0%  {
+        width: 0%;
+    } 
+    100% { 
+        width: 100%;
+    }
+}
+</style>
+</body>
+</html>
